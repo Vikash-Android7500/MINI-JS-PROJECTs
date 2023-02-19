@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto+Slab&family=Roboto:wght@300&display=swap');
+
+*{
+     margin: 0%;
+     padding: 0%;
+     box-sizing: border-box;
+
+     font-family: 'Poppins', sans-serif;
+     font-family: 'Roboto', sans-serif;
+     font-family: 'Roboto Slab', serif;
+}
+
+.wrapper{
+     width: 100vw;
+     height: 100vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background-color: rgb(97, 129, 139);
+}
+
+.container{
+    text-align: center;
+}
+
+h1{
+  margin-bottom: 30%;
+}
+
+.button-container{
+     display: flex;
+     gap: 40px;
+     margin-top: 40px;
+}
+
+.zero{
+     padding: 64px;
+     background-color: white;
+     color: black;
+     font-weight: bolder;
+     font-size: 4rem;
+     border-radius: 8px 40px;
+}
+
+.btn{
+     border: none;
+     padding: 32px;
+     border-radius: 4px;
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
+     text-transform: uppercase;
+     font-weight: bold;
+     border-radius: 32px;
+     box-shadow: 0px 0px 20px gray;
+     transition: 0.3s ease;
+}
+
+.btn1{
+     background-image: url(../CounterApp/assets/minus.png);     
+}
+
+.btn2{
+     background-image: url(../CounterApp/assets/Restart.png);
+}
+
+.btn3 {
+     background-image: url(../CounterApp/assets/plus.png);
+     /* background-color: #4bae4f; */
+}
+
+.btn1,
+.btn2,
+.btn3 {
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+}
+
+.btn1,
+.btn3 {
+   position: relative;
+   bottom: 2.5cm;
+} 
+
+.btn1{
+  position: relative;
+  left: 15px;
+}
+
+
+.btn3{
+     position: relative;
+     left: 10px;
+}
+
+.btn:active{
+   transform: scale(1.5);
+}
