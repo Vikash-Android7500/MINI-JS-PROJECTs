@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>2 Password Genrator</title>
+     <link rel="shortcut icon" href="./assets/myLOGO.png">
+     <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+      <div class="wrapper">
+        <!-- Errer show -->
+         <div id="snackbar"></div>
+
+         <h1>Password Generator 😄</h1>
+          <div class="container">
+               <div class="display-container flex">
+                  <input id="password-display" readonly placeholder="My Password" class="display" data-passwordDisplay>
+
+                    <button class="copyBtn" data-copy>
+                        <span class="tooltip" data-copyMsg></span>
+                        <img src="./assets/copy.svg" alt="copy" width="23" height="23">
+                    </button>
+               </div>
+
+               <div class="input-container">
+                    <!--password length section-->
+                    <div class="length-container flex">
+                        <p>Password Length</p>
+                        <p class="pass-len" data-lengthNumber>0</p>
+                    </div>
+                    
+                    <!--slider-->
+                    <div class="range-slider">
+                        <input type="range" min="1" max="20" class="slider" step="1" data-lengthSlider>
+                    </div>
+        
+                    <!-- checkboxes-->
+                    <div class="chack">
+                        <input type="checkbox" id="uppercase">
+                        <label for="uppercase">Includes Uppercase letters</label>
+                    </div>
+        
+                    <div class="chack">
+                        <input type="checkbox" id="lowercase">
+                        <label for="lowercase">Includes Lowercase letters</label>
+                    </div>
+        
+                    <div class="chack">
+                        <input type="checkbox" id="numbers">
+                        <label for="numbers">Includes Numbers </label>
+                    </div>
+        
+                    <div class="chack">
+                        <input type="checkbox" id="symbols">
+                        <label for="symbols">Includes Symbols </label>
+                    </div>
+        
+                    <!-- strength section-->
+                    <div class="strength-container flex">
+                        <p class="indigator-lite">Strength</p>
+                        <div data-indicator></div>
+                    </div>
+        
+                    <!-- generate password-->
+                    <button class="generateButton">Generate Password</button>
+               </div>
+          </div>
+
+     </div>
+
+
+
+     <!-- javaScript file link  -->
+     <script src="./script.js"></script>
+</body>
+</html>
