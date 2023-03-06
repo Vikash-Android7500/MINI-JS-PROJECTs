@@ -35,7 +35,7 @@ h1{
 
 .zero{
      padding: 64px;
-     background-color: white;
+     background-color: aliceblue;
      color: black;
      font-weight: bolder;
      font-size: 4rem;
@@ -55,15 +55,15 @@ h1{
 }
 
 .btn1{
-     background-image: url(../CounterApp/assets/minus.png);     
+     background-image: url(./images/M.png);    
 }
 
 .btn2{
-     background-image: url(../CounterApp/assets/Restart.png);
+     background-image: url(./images/R.png);
 }
 
 .btn3 {
-     background-image: url(../CounterApp/assets/plus.png);
+     background-image: url(./images/P.png);
      /* background-color: #4bae4f; */
 }
 
@@ -83,13 +83,13 @@ h1{
 
 .btn1{
   position: relative;
-  left: 15px;
+ 
 }
 
 
 .btn3{
      position: relative;
-     left: 10px;
+     left: 28px;
 }
 
 .btn:active{
