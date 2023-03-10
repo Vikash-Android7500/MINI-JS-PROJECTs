@@ -1,9 +1,9 @@
 *,
 *::before,
 *::after {
+    margin: 0%;
+    padding: 0%;
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
     font-family: 'Poppins', 'sans-serif';
 }
 
@@ -11,27 +11,40 @@
     width: 100vw;
     height: 100vh;
     background:linear-gradient(to left, rgb(0, 128, 128), #1b4d6e);
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
     place-items: center;
+}
+
+.vk{
+    color: white;
+    font-size: 1em;
+    text-transform: uppercase;
+    position: absolute;
+    top: 15%;
+    opacity: 0.2;
+    user-select: none;
 }
 
 .game-info{
     color:white;
     position:absolute;
-    top:3rem;
-    left:50%;
+    top: 3rem;
+    left: 50%;
     transform:translateX(-50%);
     background-color: rgba(255, 255, 255, 0.15);
     border-radius: 1rem;
     border: 1px solid rgba(255, 255, 255, 0.25);
-    padding: 0.5rem 3rem;
+    padding: 0.2rem 3rem;
     /* text-align:center; */
 
 }
 
 .tic-tac-toe{
-    width:90%;
-    max-width:20rem;
+    width: 90%;
+    max-width: 20rem;
     background-color: rgba(255, 255, 255, 0.15);
     border-radius: 1rem;
     border: 1px solid rgba(255, 255, 255, 0.25);
@@ -52,7 +65,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.5s ease-in;
 }
+
+
 
 .box1, .box2, .box4, .box5{
     border-right:2px solid white;
@@ -70,15 +86,22 @@
 .btn{
     color:white;
     position: absolute;
-    bottom:3rem;
-    left:50%;
+    bottom: 3rem;
+    left: 50%;
     transform:translateX(-50%);
     background-color: rgba(255, 255, 255, 0.15);
     border-radius: 1rem;
     border: 1px solid rgba(255, 255, 255, 0.25);
     padding: 0.5rem 2rem;
     cursor:pointer;
+    transition: all 0.2s ease-in-out;
     display: none;
+    z-index: 1;
+}
+
+.btn:active{
+    background-color: lightgreen;
+    color: black;
 }
 
 .btn.active{
@@ -87,4 +110,35 @@
 
 .win{
     background-color: rgba(0, 255, 0, 0.3);
+}
+
+
+.fail {
+    background-color: rgb(196, 119, 119);
+}
+
+.winner-IMG{
+    position: absolute;
+    top: 65%;
+    display: none;
+    border-radius: 64px;
+    box-shadow: 0px 0px 10px green;
+    transition: all 0.8s ease-out;
+}
+
+.game-Over{
+    position: absolute;
+    top: 65%;
+    display: none;
+    border-radius: 64px;
+    box-shadow: 0px 0px 10px red;
+    transition: 0.5s ease-out;
+}
+
+.winner-IMG.active{
+    display: block;
+}
+
+.game-Over.active{
+    display: block;
 }

@@ -2,6 +2,9 @@ const boxes = document.querySelectorAll(".box");
 const gameInfo = document.querySelector(".game-info");
 const newGameBtn = document.querySelector(".btn");
 
+const winnerIMG = document.querySelector("[winner-img]");
+const gameOver = document.querySelector("[game-over]");
+
 
 let currentPlayer;
 let gameGrid;
@@ -29,6 +32,8 @@ function initGame() {
         box.classList = `box box${index+1}`;
     });
     newGameBtn.classList.remove("active");
+    winnerIMG.classList.remove("active");
+    gameOver.classList.remove("active");
     gameInfo.innerText = `Current Player - ${currentPlayer}`;
 }
 
@@ -77,7 +82,9 @@ function checkGameOver() {
     if(answer !== "" ) {
         gameInfo.innerText = `Winner Player - ${answer}`;
         newGameBtn.classList.add("active");
-        return;
+        setTimeout(() => {
+            winnerIMG.classList.add("active");
+        }, 1000); 
     }
 
     //We know, NO Winner Found, let's check whether there is tie
@@ -91,6 +98,10 @@ function checkGameOver() {
     if(fillCount === 9) {
         gameInfo.innerText = "Game Tied !";
         newGameBtn.classList.add("active");
+
+        setTimeout(() => {
+           gameOver.classList.add("active"); 
+        }, 1000);
     }
 
 }
