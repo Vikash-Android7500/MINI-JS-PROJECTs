@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather App</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500;600;700&display=swap"rel="stylesheet" />
@@ -15,7 +15,8 @@
     
     <div class="wrapper">
 
-        <div id="snackbar"></div>
+        <!-- Show Toast -->
+        <div id="Toast-1" snackbar></div>
         <h1>Weather App</h1>
 
         <div class="tab-container">
@@ -48,13 +49,14 @@
             </div>
 
 
+               <!-- show Errer image -->
+                <img class="Errer-image" src="./assets/not-found.png" alt="not-found" Show-ErrerImage>
+                <p class="city-not-found" CityNotFound>City not found</p>
+
             <!-- show weather info -->
             <div class="sub-container user-info-container">
 
-                <!-- show Errer image -->
-               
-                 <img id="Errer-image" src="./assets/not-found.png" alt="not-found">
-               
+
 
                 <!--city name and Flag-->
                 <div class="name">

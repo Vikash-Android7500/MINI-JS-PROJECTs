@@ -7,6 +7,9 @@ const searchForm = document.querySelector("[data-searchForm]");
 const loadingScreen = document.querySelector(".loading-container");
 const userInfoContainer = document.querySelector(".user-info-container");
 
+const errorImg = document.querySelector("[Show-ErrerImage]");
+const Nocity = document.querySelector("[CityNotFound]");
+
 //initially vairables need????
 
 let oldTab = userTab;
@@ -16,6 +19,7 @@ getfromSessionStorage();
 
 function switchTab(newTab) {
     if(newTab != oldTab) {
+         
         oldTab.classList.remove("current-tab");
         oldTab = newTab;
         oldTab.classList.add("current-tab");
@@ -30,6 +34,8 @@ function switchTab(newTab) {
             //main pehle search wale tab pr tha, ab your weather tab visible karna h 
             searchForm.classList.remove("active");
             userInfoContainer.classList.remove("active");
+            errorImg.classList.remove("active");
+            Nocity.classList.remove("active");
             //ab main your weather tab me aagya hu, toh weather bhi display karna poadega, so let's check local storage first
             //for coordinates, if we haved saved them there.
             getfromSessionStorage();
@@ -81,12 +87,14 @@ async function fetchUserWeatherInfo(coordinates) {
         renderWeatherInfo(data);
     }
     catch(err) {
-        loadingScreen.classList.remove("active"); 
+        setTimeout(() => {
+            loadingScreen.classList.remove("active");
+        }, 1000); 
         //HW
-        
-
+         userInfoContainer.classList.remove("active");
+         errorImg.classList.add("active");
+         
     }
-
 }
 
 function renderWeatherInfo(weatherInfo) {
@@ -122,6 +130,7 @@ function getLocation() {
     }
     else {
         //HW - show an alert for no gelolocation support available
+       alert("no gelolocation support available");
     }
 }
 
@@ -146,40 +155,45 @@ searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
     let cityName = searchInput.value;
 
-    if(cityName === "")
-        return showToast("fill city name !");
-
-    if(cityName === NaN)
-       return false;
-        
+    if(cityName === "") 
+      return showToast("Fill City Name !");
+    
     else 
         fetchSearchWeatherInfo(cityName);
+
 })
 
 async function fetchSearchWeatherInfo(city) {
     loadingScreen.classList.add("active");
     userInfoContainer.classList.remove("active");
     grantAccessContainer.classList.remove("active");
+    errorImg.classList.remove("active");
+    Nocity.classList.remove("active");
 
     try {
-        const response = await fetch(
-            `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
-          );
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
         const data = await response.json();
         loadingScreen.classList.remove("active");
         userInfoContainer.classList.add("active");
+        console.log(data.cod);
         renderWeatherInfo(data);
+        
+        if(data.cod > 400){
+            userInfoContainer.classList.remove("active");
+            errorImg.classList.add("active"); 
+            Nocity.classList.add("active");
+        }  
     }
     catch(err) {
-        //hW
-        
+        //HW
+        console.log(err);
     }
 }
 
 
 
-//show Toast
-const Toast = document.querySelector("#snackbar");
+//Show Toast
+const Toast = document.querySelector("[snackbar]");
 function showToast(content = "Unknown error") {
   Toast.innerHTML = content;
   Toast.classList.add("show");
